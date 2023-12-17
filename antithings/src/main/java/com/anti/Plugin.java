@@ -24,11 +24,10 @@ public class Plugin extends JavaPlugin implements Listener {
 
     getServer().getPluginManager().registerEvents(tnt, this);
     getServer().getPluginManager().registerEvents(creeper, this);
-    LOGGER.info("antithings enabled");
+    LOGGER.info("A.N.T.I enabled");
   }
 
   public void onDisable() {
-    ban.removeBannnedItems();
-    LOGGER.info("antithings disabled");
+    LOGGER.info("A.N.T.I disabled");
   }
 }
