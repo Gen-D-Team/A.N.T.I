@@ -11,11 +11,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 
 
@@ -49,21 +47,15 @@ public class CommandHandler implements CommandExecutor, Listener {
         }
     }
 
-    @EventHandler
-    public void onBlockPlace(BlockPlaceEvent event) {
-        if (bannedItems.contains(event.getBlock().getType())) {
-            event.setCancelled(true);
-            event.getPlayer().sendMessage(ChatColor.RED + " You cannot place " + event.getBlock().getType().name());
-        }
-    }
-
+    // Anti Spawn TNT
     @EventHandler
     public void onEntityPlace(EntityExplodeEvent event) {
-        if (event.getEntity() instanceof TNTPrimed && bannedItems.contains(Material.TNT)) {
+        if (event.getEntity() instanceof TNTPrimed) {
             event.setCancelled(true);
         }
     }
 
+    // Anti Spawning Creeper
     @EventHandler
     public void onCreatureSpawnEvent(CreatureSpawnEvent event) {
         if (event.getEntity() instanceof Creeper) {
