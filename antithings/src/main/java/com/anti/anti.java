@@ -29,6 +29,7 @@ public class anti implements Listener{
             event.setCancelled(true);
         }
     }
+    
     // Farm Protection Events
     @EventHandler
     public void onPlayerInteractEvent (PlayerInteractEvent event) {
