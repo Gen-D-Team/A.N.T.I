@@ -1,0 +1,4 @@
+name: A.N.T.I
+main: com.anti.Plugin
+version: 1.0-developmentBuild
+api-version: 1.15
